@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Pop Movies App</string>
+
+    <!--menu-->
+    <string name="menu_sortBy">Sort By</string>
+    <string name="menu_sortByPop">Popularity</string>
+    <string name="menu_sortByRating">Rating</string>
+
+    <!-- Detail Activity-->
+    <string name="detail_title">Original Title:</string>
+    <string name="detail_plot">Plot:</string>
+    <string name="detail_rating">Rating:</string>
+    <string name="detail_release_date">Release Date:</string>
+
+    <!-- Content descriptions-->
+    <string name="movie_poster_content_desc">Movie Poster</string>
+
+    <!--misc-->
+    <string name="error_message">An error has occurred. Try again or fix your code :)</string>
+</resources>
