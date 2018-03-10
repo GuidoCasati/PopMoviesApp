@@ -42,7 +42,7 @@ public final class NetworkUtils {
     public static URL buildUrl(String sort) {
         Uri builtUri = Uri.parse(BASE_MOVIEDB_URL).buildUpon()
                 .appendPath(sort)
-                .appendQueryParameter(API_KEY, "insert API key here")
+                .appendQueryParameter(API_KEY, "insert api key here")
                 .appendQueryParameter(PAGE, pageNumber)
                 .build();
 
