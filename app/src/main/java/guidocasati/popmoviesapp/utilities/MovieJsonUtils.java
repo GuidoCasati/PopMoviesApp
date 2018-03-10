@@ -1,7 +1,5 @@
 package guidocasati.popmoviesapp.utilities;
 
-import android.content.Context;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,7 +20,7 @@ public final class MovieJsonUtils {
      * @return Array of Strings describing movie data
      * @throws JSONException If JSON data cannot be properly parsed
      */
-    public static Movie[] getMovieStringsFromJson(Context context, String moviesJsonString)
+    public static Movie[] getMovieStringsFromJson(String moviesJsonString)
             throws JSONException {
 
         // data are in the "results" array

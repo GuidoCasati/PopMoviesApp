@@ -1,8 +1,8 @@
 package guidocasati.popmoviesapp.utilities;
 
-/**
- * Created by Guido Casati on 03/03/2018.
- * Inspired by Udacity's Sunshine project
+/*
+  Created by Guido Casati on 03/03/2018.
+  Inspired by Udacity's Sunshine project
  */
 
 
@@ -26,10 +26,10 @@ public final class NetworkUtils {
     private static final String BASE_MOVIEDB_URL = "http://api.themoviedb.org/3/movie/";
 
     // query parameters
-    final static String API_KEY = "api_key";
-    final static String PAGE = "PAGE";
-    final static String TOP_RATED = "top_rated";
-    final static String POPULAR = "popular";
+    private final static String API_KEY = "api_key";
+    private final static String PAGE = "PAGE";
+    // --Commented out by Inspection (10/03/2018 15:07):final static String TOP_RATED = "top_rated";
+    // --Commented out by Inspection (10/03/2018 15:07):final static String POPULAR = "popular";
 
     /* Page to return */
     private static final String pageNumber = "1";

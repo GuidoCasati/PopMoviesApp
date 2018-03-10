@@ -45,7 +45,7 @@ public class DetailActivity extends AppCompatActivity {
             return;
         }*/
 
-        ArrayList<String> intent_extra = intent.getStringArrayListExtra(intent.EXTRA_TEXT);
+        ArrayList<String> intent_extra = intent.getStringArrayListExtra(intent != null ? intent.EXTRA_TEXT : null);
 
         if (intent_extra.size() == 5) {
             populateUI(intent_extra);

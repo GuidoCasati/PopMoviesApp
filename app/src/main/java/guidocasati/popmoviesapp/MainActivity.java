@@ -29,7 +29,7 @@ import guidocasati.popmoviesapp.utilities.NetworkUtils;
 
 public class MainActivity extends AppCompatActivity implements MovieAdapter.MovieAdapterOnClickHandler {
 
-    private static final String TAG = MainActivity.class.getSimpleName();
+    // --Commented out by Inspection (10/03/2018 15:06):private static final String TAG = MainActivity.class.getSimpleName();
 
     private RecyclerView mRecyclerView;
     private MovieAdapter mMovieAdapter;
@@ -141,8 +141,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
                 //get json response
                 String jsonResponse = NetworkUtils.getResponseFromHttpUrl(movieRequestURL);
                 //get movie data from response
-                Movie[] movieData = MovieJsonUtils.getMovieStringsFromJson(MainActivity.this, jsonResponse);
-                return movieData;
+                return MovieJsonUtils.getMovieStringsFromJson(jsonResponse);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
@@ -180,7 +179,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
 
     /**
      * This method is handling clicks in the menu and sorting views accordingly
-     * @param item clicked menu itam
+     * @param item clicked menu item
      * @return
      */
     @Override
