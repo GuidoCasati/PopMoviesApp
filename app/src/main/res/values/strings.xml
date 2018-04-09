@@ -5,16 +5,20 @@
     <string name="menu_sortBy">Sort By</string>
     <string name="menu_sortByPop">Popularity</string>
     <string name="menu_sortByRating">Rating</string>
+    <string name="menu_starred">Favourites</string>
 
     <!-- Detail Activity-->
     <string name="detail_title">Original Title:</string>
     <string name="detail_plot">Plot:</string>
     <string name="detail_rating">Rating:</string>
     <string name="detail_release_date">Release Date:</string>
+    <string name="detail_trailers">Trailers:</string>
+    <string name="detail_reviews">Reviews:</string>
 
     <!-- Content descriptions-->
     <string name="movie_poster_content_desc">Movie Poster</string>
 
     <!--misc-->
     <string name="error_message">An error has occurred. Try again or fix your code :)</string>
+    <string name="no_favs_available">You have no starred movies yet! Start hearting your favourite movies!</string>
 </resources>

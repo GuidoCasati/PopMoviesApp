@@ -27,24 +27,48 @@ public final class NetworkUtils {
 
     // query parameters
     private final static String API_KEY = "api_key";
+    private final static String LANG = "language";
     private final static String PAGE = "PAGE";
     // --Commented out by Inspection (10/03/2018 15:07):final static String TOP_RATED = "top_rated";
     // --Commented out by Inspection (10/03/2018 15:07):final static String POPULAR = "popular";
 
     /* Page to return */
     private static final String pageNumber = "1";
+    private static final String apiKey = "INSERT HERE YOUR API KEY";
 
     /**
      * Builds the URL used to query the movie db server.
      *
      * @return The URL to use to query the movie db server.
      */
-    public static URL buildUrl(String sort) {
-        Uri builtUri = Uri.parse(BASE_MOVIEDB_URL).buildUpon()
-                .appendPath(sort)
-                .appendQueryParameter(API_KEY, "insert api key here")
-                .appendQueryParameter(PAGE, pageNumber)
-                .build();
+    public static URL buildUrl(String query, String path) {
+        Uri builtUri = Uri.parse(BASE_MOVIEDB_URL);
+        switch (query) {
+            case "popular":
+            case "top_rated":
+                builtUri = builtUri.buildUpon()
+                        .appendPath(query)
+                        .appendQueryParameter(API_KEY, apiKey)
+                        .appendQueryParameter(PAGE, pageNumber)
+                        .build();
+                break;
+            case "reviews":
+                builtUri = builtUri.buildUpon()
+                        .appendPath(path)
+                        .appendPath(query)
+                        .appendQueryParameter(API_KEY, apiKey)
+                        .appendQueryParameter(LANG, "en-US")
+                        .appendQueryParameter(PAGE, pageNumber)
+                        .build();
+                break;
+            case "videos":
+                builtUri = builtUri.buildUpon()
+                        .appendPath(path)
+                        .appendPath(query)
+                        .appendQueryParameter(API_KEY, apiKey)
+                        .build();
+                break;
+        }
 
         URL url = null;
         try {
@@ -53,7 +77,7 @@ public final class NetworkUtils {
             e.printStackTrace();
         }
 
-        Log.v(TAG, "Built URI " + url);
+        Log.d(TAG, "Built URI " + url);
 
         return url;
     }
@@ -80,7 +104,11 @@ public final class NetworkUtils {
             } else {
                 return null;
             }
-        } finally {
+        } catch (IOException e)
+        {
+            return null;
+        }
+        finally {
             urlConnection.disconnect();
         }
     }
