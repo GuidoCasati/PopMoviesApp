@@ -34,7 +34,7 @@ public final class NetworkUtils {
 
     /* Page to return */
     private static final String pageNumber = "1";
-    private static final String apiKey = "INSERT HERE YOUR API KEY";
+    private static final String apiKey = "YOUR API KEY HERE";
 
     /**
      * Builds the URL used to query the movie db server.

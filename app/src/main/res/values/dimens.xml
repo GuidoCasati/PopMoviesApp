@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="standardMargin">8dp</dimen>
+    <dimen name="height_Star">26dp</dimen>
+    <dimen name="width_Star">51dp</dimen>
+    <dimen name="margin_Star">120dp</dimen>
+    <dimen name="doubleStandard_margin">16dp</dimen>
+    <dimen name="textSize">24sp</dimen>
+    <dimen name="width_title_tv">162dp</dimen>
+    <dimen name="width_content_tv">255dp</dimen>
+    <dimen name="width_poster">152dp</dimen>
+    <dimen name="height_poster">250dp</dimen>
+    <dimen name="height_cover">240dp</dimen>
+    <dimen name="halfStandardMargin">4dp</dimen>
+    <dimen name="textSizeList">20sp</dimen>
+    <dimen name="progressBarHeight">42dp</dimen>
+    <dimen name="progressBarWidth">42dp</dimen>
+    <dimen name="fourxStandardMargin">32dp</dimen>
+</resources>

@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
+    android:layout_marginTop="@dimen/standardMargin"
     android:orientation="horizontal">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="@dimen/standardMargin"
         android:src="@drawable/ic_account_box" />
 
     <TextView
@@ -19,8 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginLeft="@dimen/standardMargin"
+        android:layout_marginRight="@dimen/fourxStandardMargin"
         android:baselineAligned="false"
         android:maxLines="2"
         android:textColor="@android:color/black"

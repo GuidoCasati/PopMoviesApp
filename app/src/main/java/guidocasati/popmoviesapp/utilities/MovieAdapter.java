@@ -35,6 +35,18 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieAdapter
      */
     private final MovieAdapterOnClickHandler mClickHandler;
 
+    /** getters and setters
+     *
+      * @return Movie Data object
+     */
+    public Movie[] getmMovieData() {
+        return mMovieData;
+    }
+
+    public void setmMovieData(Movie[] mMovieData) {
+        this.mMovieData = mMovieData;
+    }
+
     /**
      * The interface that receives onClick messages.
      */

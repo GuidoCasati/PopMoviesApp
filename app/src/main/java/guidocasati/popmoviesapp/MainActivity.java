@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
 
     private RecyclerView mRecyclerView;
     private MovieAdapter mMovieAdapter;
-    private TextView mErrorMessageDisplay,mNoFavsMessageDisplay;
+    private TextView mErrorMessageDisplay, mNoFavsMessageDisplay;
     private ProgressBar mLoadingIndicator;
     /*private SQLiteDatabase mDB;
     private Cursor cursor;*/
@@ -48,6 +48,9 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
 
     //bool to check if favourites option was selected
     boolean isStarred = false;
+
+    //Movies array object
+    Movie[] aMovies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,8 +88,13 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
         // The ProgressBar that will indicate to the user that we are loading data. It will be hidden when no data is loading.
         mLoadingIndicator = findViewById(R.id.pb_loading_indicator);
 
-        // after setting up, loading movie data into the views
-        loadMovieData("popular");
+        if (savedInstanceState != null) {
+            Movie[] savedMovies = (Movie[]) savedInstanceState.getParcelableArray("MOVIES_KEY");
+            showMovieDataView();
+            mMovieAdapter.setmMovieData(savedMovies);
+        } else
+            // after setting up, loading movie data into the views
+            loadMovieData("popular");
     }
 
     /*private Cursor getStarredMovies() {
@@ -105,9 +113,8 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
     protected void onResume() {
         Log.d(TAG, "onResume: is starred menu option " + isStarred);
         super.onResume();
-        if (isStarred == true)
-        {
-           LoadStarredMovies();
+        if (isStarred == true) {
+            LoadStarredMovies();
         }
 
     }
@@ -151,6 +158,8 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
 
         //intentToStartDetailActivity.putStringArrayListExtra(Intent.EXTRA_TEXT, trailers_al.addAll(Arrays.asList(movieClicked.getTrailerUrls())));
         startActivity(intentToStartDetailActivity);
+
+
     }
 
     /**
@@ -230,7 +239,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
                         // get response for trailers
                         String jsonReviewsResponse = NetworkUtils.getResponseFromHttpUrl(reviewsRequestURL);
                         //get reviews into a HashMap and add to movie object
-                        if (jsonReviewsResponse != null){
+                        if (jsonReviewsResponse != null) {
                             HashMap<String, String> reviewsMap = MovieJsonUtils.getReviewsURLsFromJson(jsonReviewsResponse);
                             movie.setReviews(reviewsMap);
                         }
@@ -251,6 +260,8 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
             //loaded data, hiding loading indicator
             mLoadingIndicator.setVisibility(View.INVISIBLE);
             if (moviesData != null) {
+                //storing array
+                aMovies = moviesData;
                 // displaying data
                 showMovieDataView();
                 mMovieAdapter.setMovieData(moviesData);
@@ -398,5 +409,11 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
         }
         // set isStarred to true
         isStarred = true;
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArray("MOVIES_KEY", mMovieAdapter.getmMovieData());
     }
 }
